@@ -19,7 +19,7 @@ Since this tool runs in a browser, raw TCP socket access isn't available like in
 3. Results are best effort — HTTPS targets with HSTS, or servers that close connections immediately, may skew readings
 4. This technique may not be the most accurate and you may need to scan several times. It is not meant to be used solely to identify C2 servers running reverse proxies, but rather as a complimentary enrichment tool in your threat hunting process.
 
-This tool will not work with URLs because in the browser, you can't send a raw malformed HTTP request the way the Python script does. 
+This tool will is even more unreliable with URLs because in the browser, you can't send a raw malformed HTTP request the way the Python script does. 
 The Python trick works by crafting a packet with "Most:" instead of "Host:" in the headers, which is something something no browser will ever let you do. 
 The fetch API always sends a well-formed HTTP request regardless of what you put in the headers object.
 
@@ -27,4 +27,5 @@ So what the app is actually measuring with a URL like "example.com" is:
 "Valid" request: GET /aaaaaaaa → gets a 404 from the origin
 "Invalid" request: GET /aaaaaaaa with an extra custom header → also gets a 404 from the origin (because the proxy sees a valid-looking request and forwards it anyway)
 
+For accurate results matching the Python script's technique, the app works best when pointing at a raw IP:port running an HTTP server directly, where you're more likely to see a detectable timing difference. For polished production URLs like example.com, the browser's fetch limitations mean the results should be treated as a rough heuristic rather than a reliable proxy signal.
 
