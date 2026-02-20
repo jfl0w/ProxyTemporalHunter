@@ -5,7 +5,9 @@ Identify C2 reverse proxies by analyzing the response times to crafted HTTP requ
 
 ## Usage
 1. Input a suspicious C2 IP address or use one from the FEODO threat intel feed: https://feodotracker.abuse.ch/blocklist/#iocs
-2. (Optional) Specify a port number e.g. 8080 You can type the port with or without the colon — :8080 or 8080 both work. If you already include a port in the host field (e.g. 192.168.1.1:8080), the separate port box takes precedence and overrides it
+2. (Optional) Specify a port number in the port input box (e.g. 8080). 
+You can type the port with or without the colon :8080 or 8080 both work. 
+If you already include a port in the host field (e.g. 192.168.1.1:8080), the separate port box takes precedence and overrides it.
 4. Click "SCAN" and wait for the timing analysis results.
 5. In the example screenshot below, we are using a known Emotet C2 IP address with the port 8080 and can see the valid request took twice as long as the invalid request. 
 
