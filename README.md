@@ -18,7 +18,7 @@ Since this tool runs in a browser, raw TCP socket access isn't available like in
 
 1. CORS won't block the requests, but you won't see response bodies or status codes
 2. The timing signal is still measurable via performance.now()
-3. Results are best effort — HTTPS targets with HSTS, or servers that close connections immediately, may skew readings
+3. Results are best effort. HTTPS targets with HSTS, or servers that close connections immediately, may skew readings
 4. This technique may not be the most accurate and you may need to scan several times. It is not meant to be used solely to identify C2 servers running reverse proxies, but rather as a complimentary enrichment tool in your threat hunting process.
 
 This tool will is even more unreliable with URLs because in the browser, you can't send a raw malformed HTTP request the way the Python script does. 
