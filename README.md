@@ -4,7 +4,7 @@ Identify C2 reverse proxies by analyzing the response times to crafted HTTP requ
 "The way this works is it sends two HTTP requests: one which should trigger a 404 error (page not found), followed by one which should trigger a 400 error (invalid request), recording the time taken for each. Both 404 and 400 pages should have similar response times; however, if we’re dealing with a reverse proxy the timing should differ noticeably. The first request will get forwarded to the origin, which will see the page doesn’t exist and return a 404. The second request is invalid so the proxy will not bother to forward it, instead a 400 error will be returned directly. Due to the fact the valid request is forwarded to the origin but the invalid one isn’t, the invalid request will get a response much faster than the valid one, if we’re dealing with a reverse proxy."
 
 ## Usage
-1. Input a suspicious C2 IP or use one from the FEODO threat intel feed: https://feodotracker.abuse.ch/blocklist/#iocs
+1. Input a suspicious C2 IP address or use one from the FEODO threat intel feed: https://feodotracker.abuse.ch/blocklist/#iocs
 2. (Optional) Specify a port number e.g. 8080 You can type the port with or without the colon — :8080 or 8080 both work. If you already include a port in the host field (e.g. 192.168.1.1:8080), the separate port box takes precedence and overrides it
 4. Click "SCAN" and wait for the timing analysis results.
 5. In the example screenshot below, we are using a known Emotet C2 IP address with the port 8080 and can see the valid request took twice as long as the invalid request. 
