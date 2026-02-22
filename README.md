@@ -139,6 +139,6 @@ For the most reliable results, use the **Python script**, which uses raw TCP soc
 
 ## Disclaimer
 
-This tool is intended for legitimate security research, infrastructure analysis, and educational purposes only. Only scan hosts you own or have explicit permission to test.
+This tool is intended for legitimate security research, infrastructure analysis, and educational purposes only.
 
 
